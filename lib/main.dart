@@ -17,13 +17,13 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     //authchangestream will send userobject that can be accessed by other beneath from root(wrapped with provider)
     return StreamProvider<UserId?>.value(
+      catchError: (_, __) => null,
       initialData: null,
-      value: AuthService().user,
+      value: AuthService().user, //will use user Stream
       child: MaterialApp(
         home: Wrapper(),
       ),

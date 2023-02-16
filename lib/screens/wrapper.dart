@@ -9,10 +9,11 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //accesing the streamprovider
+    //accesing the streamprovider(got from root)
     final user = Provider.of<UserId?>(context);
+    //return null for sign out and object for sign in
     print(user);
     //listens for change and dynamically need to return either home or authenticate widget
-    return Authenticate();
+    return user != null ? Home() : Authenticate();
   }
 }
